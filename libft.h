@@ -1,9 +1,9 @@
 #ifndef LIBFT
 # define LIBFT
+# include <stdlib.h>
+# include <unistd.h>
+# include <stddef.h>
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stddef.h>
 int     ft_isalpha(int c);
 int     ft_isdigit(int c);
 int     ft_isalnum(int c);
