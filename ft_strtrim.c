@@ -10,34 +10,36 @@ static int	ft_in(char c, char const *set)
 		if (c == *(set++))
 		{
 			flag = 1;
-			break;
+			break ;
 		}
 	}
 	return (flag);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		end;
 	char	*trimmed;
 	char	*res;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
 	while (s1[start])
 		if (!ft_in(s1[start++], set))
-			break;
+			break ;
+	if (ft_in(s1[--start], set))
+		return (ft_strdup(""));
 	end = ft_strlen(s1) - 1;
-	while (s1[end])
+	while (end >= 0 && s1[end])
 		if (!ft_in(s1[end--], set))
-			break;
-	--start;
+			break ;
 	trimmed = (char *)malloc((end - start + 1) * sizeof(char));
 	if (!trimmed)
 		return (NULL);
 	res = trimmed;
-	++end;
-	while (start <= end)
+	while (start >= 0 && start <= end + 1)
 		*(trimmed++) = s1[start++];
 	*trimmed = '\0';
 	return (res);

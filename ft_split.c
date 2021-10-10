@@ -1,5 +1,18 @@
 #include "libft.h"
 
+static int	ft_free_on_err(char **arr, int words)
+{
+	int	i;
+
+	i = 0;
+	while (i < words - 1)
+	{
+		free(arr + i);
+		i++;
+	}
+	return (0);
+}
+
 static void	ft_fill_arr(char const *s, char c, char **arr)
 {
 	int	i;
@@ -40,14 +53,11 @@ static int	ft_arr_loc(char const *s, char c, char **arr)
 		{
 			--i;
 			word_len = 0;
-			while (s[i] != c && s[i])
-			{
-				++i;
+			while (s[i] != c && s[i++])
 				++word_len;
-			}
 			arr[word_count] = malloc((word_len + 1) * sizeof(char));
 			if (!arr[word_count++])
-				return (0);
+				return (ft_free_on_err(arr, word_count));
 		}
 	}
 	arr[word_count] = malloc(sizeof(char));
@@ -55,20 +65,25 @@ static int	ft_arr_loc(char const *s, char c, char **arr)
 	return (1);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		words;
 	char	**splited;
+
+	if (!s)
+		return (NULL);
 	words = 0;
 	i = 0;
 	while (s[i])
+	{
 		if (s[i++] != c)
 		{
 			while (s[i] != c && s[i])
 				++i;
 			++words;
 		}
+	}
 	splited = (char **)malloc((words + 1) * sizeof(char *));
 	if (!splited || !ft_arr_loc(s, c, splited))
 		return (NULL);

@@ -37,7 +37,7 @@ static int	ft_intlen(long long n, int sign)
 	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*str;
 	int			i;
@@ -45,7 +45,7 @@ char *ft_itoa(int n)
 	long long	x;
 
 	x = n;
-	sign = x < 0 && x;
+	sign = (x < 0 && x);
 	if (sign)
 		x = -x;
 	str = malloc(ft_intlen(x, sign) * sizeof(char));

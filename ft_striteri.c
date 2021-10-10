@@ -1,11 +1,11 @@
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned	i;
+	unsigned int	i;
 
 	i = 0;
-	while (*s)
+	while (s && *s)
 	{
 		f(i, s);
 		i++;
