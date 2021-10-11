@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end >= 0 && s1[end])
 		if (!ft_in(s1[end--], set))
 			break ;
-	trimmed = (char *)malloc((end - start + 1) * sizeof(char));
+	trimmed = (char *)malloc((end - start + 3) * sizeof(char));
 	if (!trimmed)
 		return (NULL);
 	res = trimmed;

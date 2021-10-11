@@ -5,18 +5,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	unsigned long	i;
 	char			*ptr;
 
+	if (!dstsize)
+		return (ft_strlen(src));
 	ptr = dst;
-	i = 0;
-	if (dstsize > 0)
+	while (src[i] && i < dstsize - 1)
 	{
-		while (ptr[i] && i < dstsize - 1 && src[i])
-		{
-			ptr[i] = src[i];
-			++i;
-		}
-		ptr[i] = '\0';
+		ptr[i] = src[i];
+		i++;
 	}
-	if ((size_t) i < dstsize)
-		return ((size_t) i);
-	return (dstsize);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }
