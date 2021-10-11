@@ -1,9 +1,20 @@
+# ************************************************************************** #
+#                                                                            #
+#                                                        :::      ::::::::   #
+#   Makefile                                           :+:      :+:    :+:   #
+#                                                    +:+ +:+         +:+     #
+#   By: ndillon <ndillon@42.fr>                    +#+  +:+       +#+        #
+#                                                +#+#+#+#+#+   +#+           #
+#   Created: 2021/10/12 00:38:45 by ndillon           #+#    #+#             #
+#   Updated: 2021/10/12 00:38:45 by ndillon          ###   ########.fr       #
+#                                                                            #
+# ************************************************************************** #
 
 NAME = libft.a
 
 C = clang
 
-CFLAGS = -Wall#-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS =			ft_isalpha.c ft_isdigit.c ft_isalnum.c\
 				ft_isascii.c ft_isprint.c ft_strlen.c\
@@ -30,8 +41,7 @@ all : $(NAME)
 so:
 	gcc -fPIC -c $(SRCS)
 	gcc -fPIC -c $(SRCS_BONUS)
-	gcc -shared -o libft.so $(OBJ)
-	gcc -shared -o libft.so $(OBJ_B)
+	gcc -shared -o libft.so $(OBJ) $(OBJ_B)
 
 $(NAME) : $(OBJ)
 	ar rcs $(NAME) $?
