@@ -6,7 +6,7 @@
 /*   By: ndillon <ndillon@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:38:06 by ndillon           #+#    #+#             */
-/*   Updated: 2021/10/12 00:38:06 by ndillon          ###   ########.fr       */
+/*   Updated: 2021/10/12 13:44:30 by ndillon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	int	res;
 
-	if (!s1 || !s2)
+	if (!s1 || !s2 || !n)
 		return (0);
 	while (*s1 == *s2 && --n && *s1 && *s2)
 	{
