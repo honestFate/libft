@@ -6,13 +6,13 @@
 /*   By: ndillon <ndillon@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:36:53 by ndillon           #+#    #+#             */
-/*   Updated: 2021/10/12 00:36:53 by ndillon          ###   ########.fr       */
+/*   Updated: 2021/10/12 12:41:43 by ndillon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int		direction;
 	char	*d;

@@ -12,7 +12,7 @@
 
 NAME = libft.a
 
-C = clang
+C = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -37,11 +37,6 @@ OBJ = $(patsubst %.c,%.o,$(SRCS))
 OBJ_B = $(patsubst %.c,%.o,$(SRCS_BONUS))
 
 all : $(NAME)
-
-so:
-	gcc -fPIC -c $(SRCS)
-	gcc -fPIC -c $(SRCS_BONUS)
-	gcc -shared -o libft.so $(OBJ) $(OBJ_B)
 
 $(NAME) : $(OBJ)
 	ar rcs $(NAME) $?
