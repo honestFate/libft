@@ -6,7 +6,7 @@
 /*   By: ndillon <ndillon@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:38:17 by ndillon           #+#    #+#             */
-/*   Updated: 2021/10/12 00:38:17 by ndillon          ###   ########.fr       */
+/*   Updated: 2021/10/16 13:59:51 by ndillon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	if (!s)
 		return (NULL);
+	c = (unsigned char)c;
 	if (c == '\0')
 		return ((char *)(s + ft_strlen(s)));
 	ptr = NULL;

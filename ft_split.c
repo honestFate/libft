@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndillon <ndillon@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 00:37:24 by ndillon           #+#    #+#             */
-/*   Updated: 2021/10/12 13:13:32 by ndillon          ###   ########.fr       */
+/*   Created: 2021/10/16 12:28:02 by ndillon           #+#    #+#             */
+/*   Updated: 2021/10/16 13:00:46 by ndillon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ static int	ft_free_on_err(char **arr, int words)
 	int	i;
 
 	i = 0;
-	while (i < words - 1)
+	while (i < words)
 	{
-		free(arr + i);
+		free(arr[i]);
 		i++;
 	}
+	free(arr);
 	return (0);
 }
 
@@ -61,16 +62,18 @@ static int	ft_arr_loc(char const *s, char c, char **arr)
 	while (s[i])
 	{
 		word_len = 0;
-		if (s[i++] != c)
+		if (s[i++] == c)
+			continue ;
+		--i;
+		word_len = 0;
+		while (s[i] != c && s[i])
 		{
-			--i;
-			word_len = 0;
-			while (s[i] != c && s[i++])
-				++word_len;
-			arr[word_count] = malloc((word_len + 1) * sizeof(char));
-			if (!arr[word_count++])
-				return (ft_free_on_err(arr, word_count));
+			++word_len;
+			++i;
 		}
+		arr[word_count] = malloc((word_len + 1) * sizeof(char));
+		if (!arr[word_count++])
+			return (ft_free_on_err(arr, word_count));
 	}
 	arr[word_count] = malloc(sizeof(char));
 	arr[word_count] = NULL;
