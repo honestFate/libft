@@ -6,7 +6,7 @@
 /*   By: ndillon <ndillon@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:38:10 by ndillon           #+#    #+#             */
-/*   Updated: 2021/10/17 15:41:01 by ndillon          ###   ########.fr       */
+/*   Updated: 2021/10/17 16:29:50 by ndillon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	if (!haystack || !needle)
 		return (NULL);
-	if (!strlen(needle))
+	if (!ft_strlen(needle))
 		return ((char *)haystack);
 	while (*haystack && len)
 	{
