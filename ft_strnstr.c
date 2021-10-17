@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	if (!haystack || !needle)
 		return (NULL);
-	if (!ft_strlen(needle))
+	if (!strlen(needle))
 		return ((char *)haystack);
 	while (*haystack && len)
 	{
